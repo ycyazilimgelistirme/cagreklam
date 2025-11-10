@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bursa Tabela Reklam - Modern Çözümler</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        // Tailwind özel yapılandırması
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'fade-in': 'fadeIn 1s ease-out',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Animasyonlar için temel sınıflar */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800 antialiased">
+
+    <!-- Header / Navigasyon -->
+    <header id="header" class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-sky-600">
+                Bursa Tabela
+            </a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#home" class="text-gray-600 hover:text-sky-600 transition-colors">Ana Sayfa</a>
+                <a href="#about" class="text-gray-600 hover:text-sky-600 transition-colors">Hakkımızda</a>
+                <a href="#services" class="text-gray-600 hover:text-sky-600 transition-colors">Hizmetlerimiz</a>
+                <a href="#portfolio" class="text-gray-600 hover:text-sky-600 transition-colors">Projeler</a>
+                <a href="#contact" class="text-gray-600 hover:text-sky-600 transition-colors">İletişim</a>
+                <a href="#/admpnl" class="text-sm text-gray-500 hover:text-red-600 transition-colors">Admin Panel</a>
+            </div>
+            <a href="#contact" class="hidden md:inline-block bg-sky-600 text-white px-5 py-2 rounded-full font-medium hover:bg-sky-700 transition-all shadow-lg shadow-sky-200">
+                Teklif Alın
+            </a>
+            <!-- Mobile Menu Button (gösterim için JS gerekir, şimdilik pasif) -->
+            <div class="md:hidden">
+                <button class="text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Ana Sayfa İçeriği -->
+    <div id="main-content">
+        <!-- Ana Sayfa (Hero) -->
+        <section id="home" class="relative min-h-screen flex items-center bg-gray-900 text-white overflow-hidden">
+            <div class="absolute inset-0">
+                <!-- Örnek bir arkaplan görseli -->
+                <img src="https://placehold.co/1920x1080/334155/e2e8f0?text=Modern+Tabela+Tasarımı" alt="Modern Tabela Tasarımı" class="w-full h-full object-cover opacity-30">
+            </div>
+            <div class="container mx-auto px-6 relative z-10 text-center animate-fade-in-up">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+                    Bursa'nın Lider Tabela ve Reklam Çözümleri
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+                    Modern, kaliteli ve yenilikçi tasarımlarla markanızı bir adım öne taşıyoruz.
+                </p>
+                <a href="#contact" class="bg-sky-500 text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-sky-400 transition-all transform hover:scale-105 shadow-xl">
+                    Hemen Teklif Alın
+                </a>
+            </div>
+        </section>
+
+        <!-- Hakkımızda -->
+        <section id="about" class="py-20 md:py-32 bg-white fade-in-section">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://placehold.co/600x400/e0f2fe/0c4a6e?text=Atölyemiz" alt="Bursa Tabela Atölyesi" class="rounded-2xl shadow-xl w-full">
+                </div>
+                <div>
+                    <span class="text-sky-600 font-semibold">Biz Kimiz?</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
+                        Yılların Tecrübesi, Yenilikçi Bakış Açısı
+                    </h2>
+                    <p class="text-gray-600 text-lg mb-4">
+                        Bursa Tabela olarak, 20 yılı aşkın sektör tecrübemizi modern teknoloji ve yaratıcı tasarımlarla birleştiriyoruz. Müşteri memnuniyetini her zaman ön planda tutarak, her projeye özel çözümler üretiyoruz.
+                    </p>
+                    <p class="text-gray-600 text-lg mb-8">
+                        Ekibimiz, alanında uzman tasarımcılardan ve usta üretim personelinden oluşmaktadır. Işıklı tabeladan dijital baskıya, araç giydirmeden fuar standlarına kadar geniş bir yelpazede hizmetinizdeyiz.
+                    </p>
+                    <a href="#services" class="bg-gray-800 text-white px-6 py-3 rounded-full font-medium hover:bg-gray-900 transition-all">
+                        Hizmetlerimizi Keşfedin
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hizmetlerimiz -->
+        <section id="services" class="py-20 md:py-32 bg-gray-50 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-sky-600 font-semibold">Neler Yapıyoruz?</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+                        Tabeladan Fazlası: Kapsamlı Reklam Çözümleri
+                    </h2>
+                    <p class="text-gray-600 text-lg">
+                        İhtiyacınız ne olursa olsun, markanızın görünürlüğünü artırmak için buradayız.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Hizmet Kartı 1 -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl">
+                        <img src="https://placehold.co/600x400/0ea5e9/ffffff?text=Kutu+Harf+Tabela" alt="Kutu Harf Tabela" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">Kutu Harf Tabela</h3>
+                            <p class="text-gray-600 mb-4">
+                                Göz alıcı ve prestijli bir görünüm için pleksi, alüminyum ve paslanmaz kutu harf çözümleri.
+                            </p>
+                            <a href="#contact" class="text-sky-600 font-medium hover:text-sky-700">Detaylı Bilgi &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Hizmet Kartı 2 -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl">
+                        <img src="https://placehold.co/600x400/f97316/ffffff?text=Araç+Giydirme" alt="Araç Giydirme" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">Araç Giydirme</h3>
+                            <p class="text-gray-600 mb-4">
+                                Firmanızın gezici reklamı! Profesyonel araç kaplama ile her yolda dikkat çekin.
+                            </p>
+                            <a href="#contact" class="text-sky-600 font-medium hover:text-sky-700">Detaylı Bilgi &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Hizmet Kartı 3 -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl">
+                        <img src="https://placehold.co/600x400/10b981/ffffff?text=Dijital+Baskı" alt="Dijital Baskı" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">Dijital Baskı</h3>
+                            <p class="text-gray-600 mb-4">
+                                Yüksek çözünürlüklü iç ve dış mekan dijital baskı, vinil, folyo ve branda uygulamaları.
+                            </p>
+                            <a href="#contact" class="text-sky-600 font-medium hover:text-sky-700">Detaylı Bilgi &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projeler / Galeri -->
+        <section id="portfolio" class="py-20 md:py-32 bg-white fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-sky-600 font-semibold">Portfolyo</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+                        Gurur Duyduğumuz Projeler
+                    </h2>
+                    <p class="text-gray-600 text-lg">
+                        Yaptıklarımız, yapacaklarımızın teminatıdır.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Galeri Görseli -->
+                    <div class="group relative overflow-hidden rounded-xl shadow-lg">
+                        <img src="https://placehold.co/600x600/64748b/ffffff?text=Proje+1" alt="Proje 1" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <p class="text-white font-semibold text-lg">Restoran Tabela</p>
+                        </div>
+                    </div>
+                    <!-- Galeri Görseli -->
+                    <div class="group relative overflow-hidden rounded-xl shadow-lg col-span-1 md:col-span-2">
+                        <img src="https://placehold.co/1200x600/64748b/ffffff?text=Proje+2" alt="Proje 2" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <p class="text-white font-semibold text-lg">Otel Cephe Giydirme</p>
+                        </div>
+                    </div>
+                    <!-- Galeri Görseli -->
+                    <div class="group relative overflow-hidden rounded-xl shadow-lg">
+                        <img src="https://placehold.co/600x600/64748b/ffffff?text=Proje+3" alt="Proje 3" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <p class="text-white font-semibold text-lg">Mağaza Vitrin</p>
+                        </div>
+                    </div>
+                    <!-- Galeri Görseli -->
+                    <div class="group relative overflow-hidden rounded-xl shadow-lg">
+                        <img src="https://placehold.co/600x600/64748b/ffffff?text=Proje+4" alt="Proje 4" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <p class="text-white font-semibold text-lg">Araç Kaplama</p>
+                        </div>
+                    </div>
+                    <!-- Galeri Görseli -->
+                    <div class="group relative overflow-hidden rounded-xl shadow-lg">
+                        <img src="https://placehold.co/600x600/64748b/ffffff?text=Proje+5" alt="Proje 5" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <p class="text-white font-semibold text-lg">Fuar Standı</p>
+                        </div>
+                    </div>
+                    <!-- Galeri Görseli -->
+                    <div class="group relative overflow-hidden rounded-xl shadow-lg">
+                        <img src="https://placehold.co/600x600/64748b/ffffff?text=Proje+6" alt="Proje 6" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <p class="text-white font-semibold text-lg">Işıklı Tabela</eiv>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- İletişim -->
+        <section id="contact" class="py-20 md:py-32 bg-gray-50 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-sky-600 font-semibold">İletişim</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+                        Projenizi Birlikte Hayata Geçirelim
+                    </h2>
+                    <p class="text-gray-600 text-lg">
+                        Aklınızdaki projeyi anlatın, size en uygun çözümü sunalım.
+                    </p>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-12 bg-white p-8 md:p-12 rounded-2xl shadow-xl">
+                    <!-- İletişim Formu -->
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Adınız Soyadınız</label>
+                            <input type="text" id="name" name="name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">E-posta Adresiniz</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Telefon Numaranız</label>
+                            <input type="tel" id="phone" name="phone" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Mesajınız</label>
+                            <textarea id="message" name="message" rows="5" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500" required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-sky-600 text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-sky-700 transition-all transform hover:scale-105 shadow-lg shadow-sky-200">
+                                Mesajı Gönder
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- İletişim Bilgileri ve Harita -->
+                    <div class="space-y-6">
+                        <div class="bg-sky-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-3">Bize Ulaşın</h3>
+                            <p class="text-gray-600 mb-2"><strong>Adres:</strong> Örnek Mah. Tabela Cad. No:12/3, Osmangazi, Bursa</p>
+                            <p class="text-gray-600 mb-2"><strong>Telefon:</strong> <a href="tel:02240000000" class="hover:text-sky-600">0 (224) 000 00 00</a></p>
+                            <p class="text-gray-600"><strong>E-posta:</strong> <a href="mailto:info@bursatabela.com.tr" class="hover:text-sky-600">info@bursatabela.com.tr</a></p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3">Harita</h3>
+                            <!-- Harita için bir placeholder -->
+                            <div class="aspect-w-16 aspect-h-9">
+                                <img src="https://placehold.co/600x300/e0e7ff/4338ca?text=Bursa+Harita+Konumu" alt="Harita" class="w-full h-full object-cover rounded-lg shadow-md">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ADMIN PANELİ Simülasyonu (Gizli) -->
+
+    <!-- Admin Giriş Ekranı -->
+    <div id="admin-login" class="hidden min-h-screen bg-gray-900 flex items-center justify-center p-6 animate-fade-in">
+        <div class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl max-w-md w-full">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Admin Paneli</h2>
+            <p class="text-center text-gray-500 mb-8">Lütfen giriş yapın.</p>
+            <form id="login-form" class="space-y-6">
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700">Kullanıcı Adı</label>
+                    <input type="text" id="username" name="username" value="admin" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Şifre</label>
+                    <input type="password" id="password" name="password" value="password" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                </div>
+                <div>
+                    <button type="submit" class="w-full bg-sky-600 text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-sky-700 transition-all shadow-lg shadow-sky-200">
+                        Giriş Yap
+                    </button>
+                </div>
+                <a href="#home" class="block text-center text-sm text-gray-500 hover:text-sky-600 pt-4">Siteye Geri Dön</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Ekranı (Mockup) -->
+    <div id="admin-dashboard" class="hidden min-h-screen bg-gray-100 animate-fade-in">
+        <div class="flex">
+            <!-- Yan Menü -->
+            <div class="w-64 bg-gray-800 text-white min-h-screen p-6 space-y-4">
+                <h2 class="text-2xl font-bold mb-8">Yönetim Paneli</h2>
+                <a href="#" class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-sky-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+                    <span>Gösterge Paneli</span>
+                </a>
+                <a href="#" class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>
+                    <span>Projeler / Galeri</span>
+                </a>
+                <a href="#" class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.83-5.83M11.42 15.17l.496-.496a.75.75 0 011.06 0l.496.496M11.42 15.17l-4.242 4.242a3 3 0 01-4.242-4.242L6.18 15.17M11.42 15.17l.496.496m-4.68-4.68l.496-.496a.75.75 0 011.06 0l.496.496m-4.68 4.68l.496.496M18 6l-3.09 3.09m0 0l-3.09-3.09M18 6l3.09 3.09" /></svg>
+                    <span>Hizmetler</span>
+                </a>
+                <a href="#home" class="block !mt-12 text-sm text-gray-400 hover:text-white">Siteye Geri Dön</a>
+            </div>
+            <!-- Ana İçerik Alanı -->
+            <div class="flex-1 p-10">
+                <h1 class="text-3xl font-bold text-gray-800 mb-8">Gösterge Paneli</h1>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                    <h3 class="text-xl font-semibold mb-4">Görsel Yükleme (Simülasyon)</h3>
+                    <p class="text-gray-600 mb-4">
+                        Bu alana, sürükle-bırak veya dosya seçme ile yeni proje görselleri eklemek için bir bileşen gelecek.
+                    </p>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-12 text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto text-gray-400">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l-3 3m3-3l3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+                        </svg>
+                        <p class="mt-2 text-gray-500">Dosyaları buraya sürükleyin veya <span class="text-sky-600 font-medium">gözatın</span></p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">Mevcut Projeler (Simülasyon)</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <p class="font-medium">Proje 1 - Restoran Tabela</p>
+                            <div>
+                                <button class="text-sm text-blue-600 hover:text-blue-800">Düzenle</button>
+                                <button class="ml-4 text-sm text-red-600 hover:text-red-800">Sil</button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <p class="font-medium">Proje 2 - Otel Cephe Giydirme</p>
+                            <div>
+                                <button class="text-sm text-blue-600 hover:text-blue-800">Düzenle</button>
+                                <button class="ml-4 text-sm text-red-600 hover:text-red-800">Sil</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-gray-800 text-gray-300 py-16">
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Bursa Tabela</h3>
+                <p class="text-gray-400">
+                    Markanızın parlayan yüzü. Kaliteli malzeme, profesyonel işçilik ve modern tasarımlar.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold text-white mb-4">Hızlı Bağlantılar</h4>
+                <ul class="space-y-2">
+                    <li><a href="#home" class="hover:text-white">Ana Sayfa</a></li>
+                    <li><a href="#about" class="hover:text-white">Hakkımızda</a></li>
+                    <li><a href="#services" class="hover:text-white">Hizmetlerimiz</a></li>
+                    <li><a href="#portfolio" class="hover:text-white">Projeler</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold text-white mb-4">Hizmetler</h4>
+                <ul class="space-y-2">
+                    <li><a href="#services" class="hover:text-white">Kutu Harf Tabela</a></li>
+                    <li><a href="#services" class="hover:text-white">Araç Giydirme</a></li>
+                    <li><a href="#services" class="hover:text-white">Dijital Baskı</a></li>
+                    <li><a href="#services" class="hover:text-white">Fuar Standı</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold text-white mb-4">Sosyal Medya</h4>
+                <div class="flex space-x-4">
+                    <!-- Gerçek ikonlar için SVG veya FontAwesome kullanabilirsiniz -->
+                    <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-sky-600 transition-colors">FB</a>
+                    <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-sky-600 transition-colors">IG</a>
+                    <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-sky-600 transition-colors">LN</a>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-12 border-t border-gray-700 pt-8 text-center text-gray-500">
+            <p>&copy; 2025 Bursa Tabela Reklam. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const mainContent = document.getElementById('main-content');
+            const header = document.getElementById('header');
+            const footer = document.getElementById('footer');
+            const adminLogin = document.getElementById('admin-login');
+            const adminDashboard = document.getElementById('admin-dashboard');
+            const loginForm = document.getElementById('login-form');
+
+            // --- Sayfa Yönlendirme (Routing) Simülasyonu ---
+            function handleRouting() {
+                const hash = window.location.hash;
+
+                // Tüm ana bölümleri gizle
+                mainContent.style.display = 'none';
+                header.style.display = 'none';
+                footer.style.display = 'none';
+                adminLogin.style.display = 'none';
+                adminDashboard.style.display = 'none';
+
+                if (hash === '#/admpnl') {
+                    // Admin Giriş sayfasını göster
+                    adminLogin.style.display = 'flex';
+                } else if (hash === '#/admin-dashboard') {
+                    // Admin Panelini göster
+                    adminDashboard.style.display = 'flex';
+                } else {
+                    // Ana siteyi göster
+                    mainContent.style.display = 'block';
+                    header.style.display = 'block';
+                    footer.style.display = 'block';
+                    
+                    // Eğer belirli bir bölüme gidiliyorsa, oraya scroll et
+                    if (hash && hash !== '#home' && hash !== '#') {
+                        const targetElement = document.querySelector(hash);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    } else {
+                         window.scrollTo(0, 0);
+                    }
+                }
+            }
+
+            // Hash değişimini dinle
+            window.addEventListener('hashchange', handleRouting);
+            // Sayfa ilk yüklendiğinde yönlendirmeyi çalıştır
+            handleRouting();
+
+            // --- Mock Admin Girişi ---
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Gerçekte burada bir sunucuya istek atılır
+                // Simülasyon için direkt dashboard'a yönlendiriyoruz
+                window.location.hash = '#/admin-dashboard';
+            });
+            
+            // --- Kaydırma Animasyonları (Intersection Observer) ---
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 // %10 göründüğünde tetikle
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // --- İletişim Formu Gönderimi (Mock) ---
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Burada form verileri sunucuya gönderilir
+                alert('Mesajınız başarıyla gönderildi! (Simülasyon)');
+                contactForm.reset();
+            });
+
+        });
+    </script>
+
+</body>
+</html>
