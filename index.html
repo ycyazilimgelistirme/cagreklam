@@ -3,489 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bursa Tabela Reklam - Modern Çözümler</title>
+    <title>Bursa Reklam Tabela | Çağ Reklam</title>
+    <meta name="description" content="Bursa'da profesyonel tabela, reklam, kutu harf, araç giydirme ve dijital baskı hizmetleri.">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <script>
-        // Tailwind özel yapılandırması
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.8s ease-out',
-                        'fade-in': 'fadeIn 1s ease-out',
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        }
-                    }
-                }
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Özel Animasyonlar */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-    </script>
-    
-    <style>
-        /* Animasyonlar için temel sınıflar */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in-section.is-visible {
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        /* Galeri Hover Efekti */
+        .gallery-item:hover .overlay {
             opacity: 1;
-            transform: translateY(0);
         }
-        /* Yükleniyor animasyonu */
-        .loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #0ea5e9;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
+        .gallery-item img {
+            transition: transform 0.5s ease;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .gallery-item:hover img {
+            transform: scale(1.05);
         }
+
+        /* Whatsapp Butonu */
+        .float-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 50;
+            transition: all 0.3s ease;
+        }
+        .float-btn:hover { transform: scale(1.1); }
     </style>
 </head>
-<body class="bg-gray-50 font-sans text-gray-800 antiasa-aliased">
+<body class="bg-gray-50 text-gray-800">
 
-    <!-- Header / Navigasyon -->
-    <header id="header" class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 transition-all duration-300">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-sky-600">
-                Bursa Tabela
-            </a>
-            <div class="hidden md:flex space-x-6 items-center">
-                <a href="#home" class="text-gray-600 hover:text-sky-600 transition-colors">Ana Sayfa</a>
-                <a href="#about" class="text-gray-600 hover:text-sky-600 transition-colors">Hakkımızda</a>
-                <a href="#services" class="text-gray-600 hover:text-sky-600 transition-colors">Hizmetlerimiz</a>
-                <a href="#portfolio" class="text-gray-600 hover:text-sky-600 transition-colors">Projeler</a>
-                <a href="#contact" class="text-gray-600 hover:text-sky-600 transition-colors">İletişim</a>
-                <!-- Admin Panel butonu kaldırıldı -->
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-40 top-0 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="bg-red-600 text-white p-2 rounded font-bold text-xl">ÇAĞ</div>
+                <span class="font-bold text-xl text-gray-800 tracking-tight">REKLAM TABELA</span>
             </div>
-            <a href="#contact" class="hidden md:inline-block bg-sky-600 text-white px-5 py-2 rounded-full font-medium hover:bg-sky-700 transition-all shadow-lg shadow-sky-200">
-                Teklif Alın
-            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 font-medium text-gray-600">
+                <a href="#home" class="hover:text-red-600 transition">Anasayfa</a>
+                <a href="#services" class="hover:text-red-600 transition">Hizmetler</a>
+                <a href="#gallery" class="hover:text-red-600 transition">Galeri</a>
+                <a href="#contact" class="hover:text-red-600 transition">İletişim</a>
+            </div>
+
             <!-- Mobile Menu Button -->
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </button>
-            </div>
-        </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden flex-col space-y-2 px-6 pb-4">
-            <a href="#home" class="block text-gray-600 hover:text-sky-600 transition-colors py-1">Ana Sayfa</a>
-            <a href="#about" class="block text-gray-600 hover:text-sky-600 transition-colors py-1">Hakkımızda</a>
-            <a href="#services" class="block text-gray-600 hover:text-sky-600 transition-colors py-1">Hizmetlerimiz</a>
-            <a href="#portfolio" class="block text-gray-600 hover:text-sky-600 transition-colors py-1">Projeler</a>
-            <a href="#contact" class="block text-gray-600 hover:text-sky-600 transition-colors py-1">İletişim</a>
+            <button class="md:hidden text-2xl text-gray-700" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
-    </header>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 absolute w-full shadow-lg">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="block text-gray-600 hover:text-red-600">Anasayfa</a>
+                <a href="#services" class="block text-gray-600 hover:text-red-600">Hizmetler</a>
+                <a href="#gallery" class="block text-gray-600 hover:text-red-600">Galeri</a>
+                <a href="#contact" class="block text-gray-600 hover:text-red-600">İletişim</a>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Ana Sayfa İçeriği -->
-    <div id="main-content">
-        <!-- Ana Sayfa (Hero) -->
-        <section id="home" class="relative min-h-screen flex items-center bg-gray-900 text-white overflow-hidden">
-            <div class="absolute inset-0">
-                <!-- Dinamik arkaplan görseli -->
-                <img id="hero-image" src="" alt="Modern Tabela Tasarımı" class="w-full h-full object-cover opacity-30">
-                <div id="hero-loader" class="w-full h-full flex items-center justify-center bg-gray-800">
-                    <div class="loader"></div>
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center bg-gray-900 overflow-hidden pt-16">
+        <!-- Arkaplan görseli yerine gradient ve desen -->
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800 opacity-90 z-10"></div>
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-40"></div>
+        
+        <div class="container mx-auto px-4 relative z-20 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 fade-in-up">İşinizi <span class="text-red-500">Görünür</span> Kılın</h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-2xl mx-auto fade-in-up delay-100">Bursa'nın en modern tabela ve reklam çözümleri ile markanızı öne çıkarın.</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center fade-in-up delay-200">
+                <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full font-semibold transition shadow-lg shadow-red-600/30">Teklif Alın</a>
+                <a href="#gallery" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-3 rounded-full font-semibold transition">İşlerimizi Görün</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hizmetler -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Hizmetlerimiz</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+                <p class="mt-4 text-gray-600">Sizin için sunduğumuz profesyonel çözümler.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Hizmet Kartı 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100 text-center group">
+                    <div class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl group-hover:bg-red-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-cube"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Kutu Harf Tabela</h3>
+                    <p class="text-gray-600 text-sm">Pleksi, krom ve alüminyum kutu harf seçenekleri ile markanıza prestij katın.</p>
+                </div>
+
+                <!-- Hizmet Kartı 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100 text-center group">
+                    <div class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl group-hover:bg-red-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Işıklı & Işıksız Tabela</h3>
+                    <p class="text-gray-600 text-sm">Gece ve gündüz fark edilmenizi sağlayan modern ışıklı sistemler.</p>
+                </div>
+
+                <!-- Hizmet Kartı 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100 text-center group">
+                    <div class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl group-hover:bg-red-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-car"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Araç Giydirme</h3>
+                    <p class="text-gray-600 text-sm">Firmanızın reklamını yollara taşıyın. Profesyonel araç kaplama hizmetleri.</p>
                 </div>
             </div>
-            <div class="container mx-auto px-6 relative z-10 text-center animate-fade-in-up">
-                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
-                    Bursa'nın Lider Tabela ve Reklam Çözümleri
-                </h1>
-                <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
-                    Modern, kaliteli ve yenilikçi tasarımlarla markanızı bir adım öne taşıyoruz.
-                </p>
-                <a href="#contact" class="bg-sky-500 text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-sky-400 transition-all transform hover:scale-105 shadow-xl">
-                    Hemen Teklif Alın
-                </a>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Hakkımızda -->
-        <section id="about" class="py-20 md:py-32 bg-white fade-in-section">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    <!-- Dinamik Galeri -->
+    <section id="gallery" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Referanslarımız</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+                
+                <!-- Kategori Filtreleri -->
+                <div class="flex flex-wrap justify-center gap-4 mt-8" id="category-filters">
+                    <button onclick="filterGallery('all')" class="filter-btn active px-6 py-2 rounded-full bg-red-600 text-white shadow-md transition cursor-pointer">Tümü</button>
+                    <button onclick="filterGallery('kutu-harf')" class="filter-btn px-6 py-2 rounded-full bg-white text-gray-600 hover:bg-gray-200 transition cursor-pointer">Kutu Harf</button>
+                    <button onclick="filterGallery('isikli')" class="filter-btn px-6 py-2 rounded-full bg-white text-gray-600 hover:bg-gray-200 transition cursor-pointer">Işıklı Tabela</button>
+                    <button onclick="filterGallery('totem')" class="filter-btn px-6 py-2 rounded-full bg-white text-gray-600 hover:bg-gray-200 transition cursor-pointer">Totem</button>
+                    <button onclick="filterGallery('dijital')" class="filter-btn px-6 py-2 rounded-full bg-white text-gray-600 hover:bg-gray-200 transition cursor-pointer">Dijital Baskı</button>
+                </div>
+            </div>
+
+            <!-- Galeri Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+                <!-- Javascript burayı dolduracak -->
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim -->
+    <section id="contact" class="py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
-                    <!-- Dinamik "Hakkımızda" görseli -->
-                    <img id="about-image" src="" alt="Bursa Tabela Atölyesi" class="rounded-2xl shadow-xl w-full aspect-video object-cover hidden">
-                    <div id="about-loader" class="w-full aspect-video flex items-center justify-center bg-gray-100 rounded-2xl">
-                        <div class="loader"></div>
-                    </div>
-                </div>
-                <div>
-                    <span class="text-sky-600 font-semibold">Biz Kimiz?</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                        Yılların Tecrübesi, Yenilikçi Bakış Açısı
-                    </h2>
-                    <p class="text-gray-600 text-lg mb-4">
-                        Bursa Tabela olarak, 20 yılı aşkın sektör tecrübemizi modern teknoloji ve yaratıcı tasarımlarla birleştiriyoruz. Müşteri memnuniyetini her zaman ön planda tutarak, her projeye özel çözümler üretiyoruz.
-                    </p>
-                    <p class="text-gray-600 text-lg mb-8">
-                        Ekibimiz, alanında uzman tasarımcılardan ve usta üretim personelinden oluşmaktadır. Işıklı tabeladan dijital baskıya, araç giydirmeden fuar standlarına kadar geniş bir yelpazede hizmetinizdeyiz.
-                    </p>
-                    <a href="#services" class="bg-gray-800 text-white px-6 py-3 rounded-full font-medium hover:bg-gray-900 transition-all">
-                        Hizmetlerimizi Keşfedin
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Hizmetlerimiz -->
-        <section id="services" class="py-20 md:py-32 bg-gray-50 fade-in-section">
-            <div class="container mx-auto px-6">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-sky-600 font-semibold">Neler Yapıyoruz?</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
-                        Tabeladan Fazlası: Kapsamlı Reklam Çözümleri
-                    </h2>
-                    <p class="text-gray-600 text-lg">
-                        İhtiyacınız ne olursa olsun, markanızın görünürlüğünü artırmak için buradayız.
-                    </p>
-                </div>
-                <!-- Hizmet kartları dinamik olarak buraya eklenecek -->
-                <div id="services-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Yükleniyor göstergesi -->
-                    <div class="col-span-full flex justify-center py-10">
-                        <div class="loader"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projeler / Galeri -->
-        <section id="portfolio" class="py-20 md:py-32 bg-white fade-in-section">
-            <div class="container mx-auto px-6">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-sky-600 font-semibold">Portfolyo</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
-                        Gurur Duyduğumuz Projeler
-                    </h2>
-                    <p class="text-gray-600 text-lg">
-                        Yaptıklarımız, yapacaklarımızın teminatıdır.
-                    </p>
-                </div>
-                <!-- Galeri dinamik olarak buraya eklenecek -->
-                <div id="portfolio-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <!-- Yükleniyor göstergesi -->
-                    <div class="col-span-full flex justify-center py-10">
-                        <div class="loader"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- İletişim -->
-        <section id="contact" class="py-20 md:py-32 bg-gray-50 fade-in-section">
-            <div class="container mx-auto px-6">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-sky-600 font-semibold">İletişim</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
-                        Projenizi Birlikte Hayata Geçirelim
-                    </h2>
-                    <p class="text-gray-600 text-lg">
-                        Aklınızdaki projeyi anlatın, size en uygun çözümü sunalım.
-                    </p>
-                </div>
-                <div class="grid lg:grid-cols-2 gap-12 bg-white p-8 md:p-12 rounded-2xl shadow-xl">
-                    <!-- İletişim Bilgileri ve Sosyal Medya -->
-                    <div class="space-y-8">
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-4 text-gray-800">Bize Ulaşın</h3>
-                            <div class="space-y-3 text-lg">
-                                <p class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 mr-3 text-sky-600"><path fill-rule="evenodd" d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.145l.001-.001.002-.002.002-.002a1 1 0 00.18-.16c.008-.009.015-.02.021-.03l.001-.002.001-.002c.002-.003.004-.006.005-.009a.742.742 0 00.048-.067l.002-.002.001-.002.002-.003c.002-.003.004-.006.005-.009l.001-.001.002-.003c.002-.003.003-.005.005-.008l.001-.002c.002-.003.003-.005.004-.008A5.7 5.7 0 0012 17.168V14.5a.5.5 0 00-.5-.5h-3a.5.5 0 00-.5.5v2.668c0 .245.03.486.088.72l.004.008.005.008.002.003.001.002.005.008.003.005.002.003.001.001.005.009.002.003.001.002.048.067.005.009.003.006.002.003.001.002.021.03.002.002.18.16.002.002.001.001.281.145.018.008.006.003c.002.001.002.001.003.001zM10 8a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /><path d="M2.5 5.5a3 3 0 00-3 3v6a3 3 0 003 3h15a3 3 0 003-3v-6a3 3 0 00-3-3H2.5zM19 14.5a1 1 0 00-1-1H2a1 1 0 00-1 1v2a1 1 0 001 1h16a1 1 0 001-1v-2z" /></svg>
-                                    <span id="contact-address">Adres bilgisi yükleniyor...</span>
-                                </p>
-                                <p class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 mr-3 text-sky-600"><path d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.067a1.5 1.5 0 01-1.06 1.638L5.39 8.975a11.38 11.38 0 005.652 5.652l.71-1.37a1.5 1.5 0 011.638-1.06l3.067.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-5.523 0-10-4.477-10-10V3.5z" /></svg>
-                                    <a id="contact-phone-link" href="#" class="hover:text-sky-600"><span id="contact-phone">Telefon yükleniyor...</span></a>
-                                </p>
-                                <p class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 mr-3 text-sky-600"><path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.161V6a2 2 0 00-2-2H3z" /><path d="M19 8.839l-7.441 3.721a2.75 2.75 0 01-3.118 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" /></svg>
-                                    <a id="contact-email-link" href="#" class="hover:text-sky-600"><span id="contact-email">E-posta yükleniyor...</span></a>
-                                </p>
+                    <h2 class="text-3xl font-bold mb-6">Bizimle İletişime Geçin</h2>
+                    <p class="text-gray-400 mb-8">Projeniz için ücretsiz keşif ve fiyat teklifi almak için bize ulaşın.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded bg-red-600/20 text-red-500 flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Adres</h4>
+                                <p class="text-gray-400 text-sm">Beşevler Sanayi Sitesi, Nilüfer / BURSA</p>
                             </div>
                         </div>
 
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-4 text-gray-800">Sosyal Medya</h3>
-                            <div class="flex space-x-4">
-                                <!-- WhatsApp -->
-                                <a id="contact-whatsapp" href="#" target="_blank" class="flex items-center justify-center w-full md:w-auto px-6 py-3 bg-green-500 text-white rounded-lg font-medium hover:bg-green-600 transition-all shadow-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 mr-2"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.656.996 3.597 1.59 5.592 1.594 5.437 0 9.871-4.43 9.871-9.871s-4.43-9.871-9.871-9.871-9.871 4.43-9.871 9.871c0 1.99.578 3.86 1.65 5.518l-1.06 3.868 3.845-1.059zM12.001 5.804c-.142 0-.283.011-.422.033-.139.022-.278.05-.41.083-.133.032-.26.07-.378.114-.118.043-.229.09-.328.14-.1.05-.192.102-.274.156-.083.053-.158.107-.221.163-.064.056-.12.112-.167.168-.047.056-.086.11-.115.163-.029.053-.05.107-.065.156-.015.05-.022.096-.026.139l-.004.062c0 .097.01.194.03.292.02.097.04.194.08.291.03.098.07.195.12.292.05.097.1.19.16.278.06.088.13.17.21.25.08.078.16.146.25.213.09.067.18.12.28.163.09.043.19.08.29.11.1.03.2.04.3.04s.2-.01.3-.04.19-.07.29-.11c.1-.043.19-.09.28-.163.09-.07.17-.13.25-.213.08-.07.15-.15.21-.25.06-.09.11-.18.16-.278.05-.1.09-.19.12-.292.03-.1.06-.19.08-.291.02-.1.03-.19.03-.292 0-.1-.01-.19-.02-.29l-.004-.07c-.01-.05-.02-.09-.03-.14s-.04-.1-.07-.15c-.03-.05-.07-.1-.11-.16-.05-.05-.1-.1-.17-.16-.06-.06-.12-.1-.22-.16-.08-.05-.17-.1-.27-.16-.1-.05-.21-.09-.33-.14-.12-.04-.24-.08-.38-.11s-.28-.05-.42-.05z"/></svg>
-                                    <span>WhatsApp'tan Ulaşın</span>
-                                </a>
-                                <!-- Instagram -->
-                                <a id="contact-instagram" href="#" target="_blank" class="flex items-center justify-center w-full md:w-auto px-6 py-3 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 transition-all shadow-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 mr-2"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.227-1.664 4.771-4.919 4.919-1.265.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85C2.31 3.858 3.829 2.31 7.081 2.232c1.265-.058 1.646-.07 4.85-.07zm0 1.44c-3.173 0-3.51.01-4.744.06-2.67.12-3.947 1.41-4.068 4.068-.05 1.233-.06 1.57-.06 4.744s.01 3.51.06 4.744c.12 2.67 1.41 3.947 4.068 4.068 1.233.05 1.57.06 4.744.06s3.51-.01 4.744-.06c2.67-.12 3.947-1.41 4.068-4.068.05-1.233.06-1.57.06-4.744s-.01-3.51-.06-4.744c-.12-2.67-1.41-3.947-4.068-4.068-1.233-.05-1.57-.06-4.744-.06zm0 5.838a5.558 5.558 0 1 0 0 11.116 5.558 5.558 0 0 0 0-11.116zm0 8.22a2.662 2.662 0 1 1 0-5.324 2.662 2.662 0 0 1 0 5.324zm4.205-7.854a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
-                                    <span>Instagram'da Takip Edin</span>
-                                B</a>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded bg-red-600/20 text-red-500 flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Telefon</h4>
+                                <a href="tel:+905555555555" class="text-gray-400 text-sm hover:text-white">+90 555 555 55 55</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded bg-red-600/20 text-red-500 flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Mail</h4>
+                                <a href="mailto:info@bursareklamtabela.com.tr" class="text-gray-400 text-sm hover:text-white">info@bursareklamtabela.com.tr</a>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Harita -->
-                    <div class="space-y-6">
-                         <h3 class="text-2xl font-semibold mb-4 text-gray-800">Harita Konumumuz</h3>
-                        <div class="aspect-w-16 aspect-h-9">
-                            <iframe id="contact-map" class="w-full h-full object-cover rounded-lg shadow-md"
-                                src=""
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
-                            <div id="map-loader" class="w-full h-full flex items-center justify-center bg-gray-100 rounded-lg">
-                                <div class="loader"></div>
-                            </div>
-                        </div>
+                    <div class="mt-8 flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded bg-gray-800 flex items-center justify-center hover:bg-red-600 transition text-white">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded bg-gray-800 flex items-center justify-center hover:bg-green-600 transition text-white">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition text-white">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
                     </div>
                 </div>
+                
+                <div class="bg-white rounded-xl p-1 overflow-hidden">
+                   <!-- Harita Placeholder -->
+                   <div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500 min-h-[300px]">
+                       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.123456789!2d28.9!3d40.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDA2JzAwLjAiTiAyOMKwNTQnMDAuMCJF!5e0!3m2!1str!2str!4v1600000000000!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                   </div>
+                </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer id="footer" class="bg-gray-800 text-gray-300 py-16">
-        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8">
-            <div>
-                <h3 class="text-xl font-bold text-white mb-4">Bursa Tabela</h3>
-                <p class="text-gray-400">
-                    Markanızın parlayan yüzü. Kaliteli malzeme, profesyonel işçilik ve modern tasarımlar.
-                </p>
-            </div>
-            <div>
-                <h4 class="text-lg font-semibold text-white mb-4">Hızlı Bağlantılar</h4>
-                <ul class="space-y-2">
-                    <li><a href="#home" class="hover:text-white">Ana Sayfa</a></li>
-                    <li><a href="#about" class="hover:text-white">Hakkımızda</a></li>
-                    <li><a href="#services" class="hover:text-white">Hizmetlerimiz</a></li>
-                    <li><a href="#portfolio" class="hover:text-white">Projeler</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-lg font-semibold text-white mb-4">Hizmetler</h4>
-                <ul id="footer-services-list" class="space-y-2">
-                    <!-- Dinamik olarak dolacak -->
-                    <li><a href="#services" class="hover:text-white">...</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-lg font-semibold text-white mb-4">Sosyal Medya</h4>
-                <div class="flex space-x-4">
-                    <a id="footer-whatsapp" href="#" target="_blank" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-green-500 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
-                    </a>
-                    <a id="footer-instagram" href="#" target="_blank" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.227-1.664 4.771-4.919 4.919-1.265.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85C2.31 3.858 3.829 2.31 7.081 2.232c1.265-.058 1.646-.07 4.85-.07z"/></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="container mx-auto px-6 mt-12 border-t border-gray-700 pt-8 text-center text-gray-500">
-            <p>&copy; 2025 Bursa Tabela Reklam. Tüm hakları saklıdır.</p>
-        </div>
+    <footer class="bg-gray-950 py-8 text-center border-t border-gray-800">
+        <p class="text-gray-500 text-sm">© 2025 Çağ Reklam Tabela. Tüm hakları saklıdır.</p>
     </footer>
 
+    <!-- Sabit Whatsapp Butonu -->
+    <a href="https://wa.me/905555555555" target="_blank" class="float-btn w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white text-3xl shadow-lg hover:bg-green-600">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- SCRIPT ALANI (Admin Paneli Burayı Güncelleyecek) -->
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            
-            // --- GitHub Depo Bilgileri ---
-            // BU BİLGİLERİ KENDİ GITHUB BİLGİLERİNİZLE DEĞİŞTİRİN
-            const GITHUB_USER = "ycyazilimgelistirme";
-            const GITHUB_REPO = "cagreklam";
-            const GITHUB_BRANCH = "main";
-            // ---------------------------------
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
 
-            const DATA_URL = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/data.json`;
-
-            // --- Veri Çekme ve Sayfayı Doldurma ---
-            async function loadContent() {
-                try {
-                    // Cache-busting için rastgele bir parametre ekle
-                    const response = await fetch(`${DATA_URL}?v=${new Date().getTime()}`);
-                    if (!response.ok) {
-                        throw new Error(`Veri alınamadı: ${response.statusText}`);
-                    }
-                    const data = await response.json();
-                    
-                    // 1. Hero Bölümü
-                    const heroImage = document.getElementById('hero-image');
-                    const heroLoader = document.getElementById('hero-loader');
-                    if (data.hero && data.hero.imageUrl) {
-                        heroImage.src = data.hero.imageUrl;
-                        heroImage.onload = () => {
-                            heroLoader.style.display = 'none';
-                            heroImage.style.display = 'block';
-                        };
-                    } else {
-                        heroLoader.innerHTML = "Ana görsel bulunamadı.";
-                    }
-
-                    // 2. Hakkımızda Bölümü
-                    const aboutImage = document.getElementById('about-image');
-                    const aboutLoader = document.getElementById('about-loader');
-                     if (data.about && data.about.imageUrl) {
-                        aboutImage.src = data.about.imageUrl;
-                        aboutImage.onload = () => {
-                            aboutLoader.style.display = 'none';
-                            aboutImage.style.display = 'block';
-                        };
-                    } else {
-                        aboutLoader.innerHTML = "Hakkımızda görseli bulunamadı.";
-                    }
-
-                    // 3. Hizmetlerimiz Bölümü
-                    const servicesGrid = document.getElementById('services-grid');
-                    servicesGrid.innerHTML = ''; // Yükleyiciyi temizle
-                    if (data.services && data.services.length > 0) {
-                        data.services.forEach(service => {
-                            servicesGrid.innerHTML += `
-                                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl">
-                                    <img src="${service.imageUrl}" alt="${service.title}" class="w-full h-56 object-cover">
-                                    <div class="p-6">
-                                        <h3 class="text-2xl font-bold mb-2">${service.title}</h3>
-                                        <p class="text-gray-600 mb-4">${service.desc}</p>
-                                        <a href="#contact" class="text-sky-600 font-medium hover:text-sky-700">Detaylı Bilgi &rarr;</a>
-                                    </div>
-                                </div>
-                            `;
-                        });
-                    } else {
-                        servicesGrid.innerHTML = '<p class="col-span-full text-center text-gray-500">Hizmetler henüz eklenmemiş.</p>';
-                    }
-
-                    // 4. Portfolyo / Projeler Bölümü
-                    const portfolioGrid = document.getElementById('portfolio-grid');
-                    portfolioGrid.innerHTML = ''; // Yükleyiciyi temizle
-                    if (data.portfolio && data.portfolio.length > 0) {
-                        data.portfolio.forEach((project, index) => {
-                            // Projeler için farklı grid boyutları (opsiyonel, demo'daki gibi)
-                            const colSpan = (index === 1) ? 'md:col-span-2' : '';
-                            const aspect = (index === 1) ? 'aspect-[2/1]' : 'aspect-square';
-                            
-                            portfolioGrid.innerHTML += `
-                                <div class="group relative overflow-hidden rounded-xl shadow-lg ${colSpan} ${aspect}">
-                                    <img src="${project.imageUrl}" alt="${project.title}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                                        <p class="text-white font-semibold text-lg">${project.title}</p>
-                                    </div>
-                                </div>
-                            `;
-                        });
-                    } else {
-                        portfolioGrid.innerHTML = '<p class="col-span-full text-center text-gray-500">Projeler henüz eklenmemiş.</p>';
-                    }
-
-                    // 5. İletişim Bölümü
-                    const contact = data.contact;
-                    if (contact) {
-                        document.getElementById('contact-address').textContent = contact.address || 'Adres bilgisi girilmemiş.';
-                        
-                        document.getElementById('contact-phone').textContent = contact.phone || 'Telefon girilmemiş.';
-                        document.getElementById('contact-phone-link').href = `tel:${contact.phone || ''}`;
-                        
-                        document.getElementById('contact-email').textContent = contact.email || 'E-posta girilmemiş.';
-                        document.getElementById('contact-email-link').href = `mailto:${contact.email || ''}`;
-
-                        document.getElementById('contact-whatsapp').href = `https://wa.me/${contact.whatsapp || ''}`;
-                        document.getElementById('contact-instagram').href = contact.instagram || '#';
-
-                        document.getElementById('footer-whatsapp').href = `https://wa.me/${contact.whatsapp || ''}`;
-                        document.getElementById('footer-instagram').href = contact.instagram || '#';
-
-                        const contactMap = document.getElementById('contact-map');
-                        const mapLoader = document.getElementById('map-loader');
-                        if(contact.mapUrl) {
-                            contactMap.src = contact.mapUrl;
-                            contactMap.onload = () => {
-                                mapLoader.style.display = 'none';
-                                contactMap.style.display = 'block';
-                            }
-                        } else {
-                            mapLoader.innerHTML = "Harita linki bulunamadı.";
-                        }
-                    }
-
-                    // 6. Footer Hizmetler Listesi
-                    const footerServicesList = document.getElementById('footer-services-list');
-                    footerServicesList.innerHTML = '';
-                    if (data.services && data.services.length > 0) {
-                        data.services.slice(0, 4).forEach(service => { // En fazla 4 hizmeti göster
-                            footerServicesList.innerHTML += `
-                                <li><a href="#services" class="hover:text-white">${service.title}</a></li>
-                            `;
-                        });
-                    }
-
-                } catch (error) {
-                    console.error("İçerik yüklenirken hata oluştu:", error);
-                    // Hata durumunda yükleyicileri kaldır ve hata mesajı göster
-                    document.getElementById('hero-loader').innerHTML = "İçerik yüklenemedi.";
-                    document.getElementById('about-loader').innerHTML = "İçerik yüklenemedi.";
-                    document.getElementById('services-grid').innerHTML = '<p class="col-span-full text-center text-red-500">Hizmetler yüklenirken bir hata oluştu.</p>';
-                    document.getElementById('portfolio-grid').innerHTML = '<p class="col-span-full text-center text-red-500">Projeler yüklenirken bir hata oluştu.</p>';
-                }
+        // --- ADMIN PANELİ VERİ ALANI BAŞLANGIÇ ---
+        // Bu alan Python scripti tarafından otomatik güncellenir. 
+        // Manuel değişiklik yaparken dikkatli olun.
+        // <!-- GALLERY_DATA_START -->
+        const galleryImages = [
+            {
+                "category": "kutu-harf",
+                "url": "https://raw.githubusercontent.com/ycyazilimgelistirme/cagreklam/refs/heads/main/gorseller/ornek_tabela_1.png"
+            },
+            {
+                "category": "isikli",
+                "url": "https://raw.githubusercontent.com/ycyazilimgelistirme/cagreklam/refs/heads/main/gorseller/ornek_tabela_2.png"
             }
+        ];
+        // <!-- GALLERY_DATA_END -->
+        // --- ADMIN PANELİ VERİ ALANI BİTİŞ ---
 
-            // Sayfa yüklendiğinde içeriği doldur
-            loadContent();
-
+        // Galeri Render Fonksiyonu
+        function renderGallery(items) {
+            const container = document.getElementById('gallery-grid');
+            container.innerHTML = '';
             
-            // --- Kaydırma Animasyonları (Intersection Observer) ---
-            const sections = document.querySelectorAll('.fade-in-section');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1 // %10 göründüğünde tetikle
+            items.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'gallery-item relative group overflow-hidden rounded-xl shadow-lg bg-white aspect-video cursor-pointer';
+                div.innerHTML = `
+                    <img src="${item.url}" alt="Tabela Referans" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400?text=Gorsel+Yuklenemedi'">
+                    <div class="overlay absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                        <span class="text-white font-bold border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">İncele</span>
+                    </div>
+                `;
+                // Basit Lightbox (Tıklayınca yeni sekmede açar, lightbox kütüphanesi eklenebilir)
+                div.onclick = () => window.open(item.url, '_blank');
+                container.appendChild(div);
             });
 
-            sections.forEach(section => {
-                observer.observe(section);
+            if(items.length === 0) {
+                container.innerHTML = '<div class="col-span-3 text-center py-10 text-gray-500">Bu kategoride henüz görsel bulunmuyor.</div>';
+            }
+        }
+
+        // Filtreleme Fonksiyonu
+        function filterGallery(category) {
+            // Buton stillerini güncelle
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                if(btn.getAttribute('onclick').includes(category)) {
+                    btn.classList.remove('bg-white', 'text-gray-600');
+                    btn.classList.add('bg-red-600', 'text-white');
+                } else {
+                    btn.classList.add('bg-white', 'text-gray-600');
+                    btn.classList.remove('bg-red-600', 'text-white');
+                }
             });
 
-            // --- Mobile Menu Toggle ---
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+            // Veriyi filtrele ve render et
+            if (category === 'all') {
+                renderGallery(galleryImages);
+            } else {
+                const filtered = galleryImages.filter(item => item.category === category);
+                renderGallery(filtered);
+            }
+        }
 
-            // Mobil menü linklerine tıklanınca menüyü kapat
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
-
+        // Sayfa yüklendiğinde çalıştır
+        document.addEventListener('DOMContentLoaded', () => {
+            renderGallery(galleryImages);
         });
-    </script>
 
+    </script>
 </body>
 </html>
